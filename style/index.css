@@ -1,0 +1,15 @@
+@font-face {
+    font-family: "Assistant";
+    src: url("../Assets/Assistant-VariableFont_wght.ttf");
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	font-family: 'Assistant';
+	background: linear-gradient(to bottom, #5aadff, #97cbff, #c8e3ff);
+}
