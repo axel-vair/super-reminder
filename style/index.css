@@ -3,13 +3,171 @@
     src: url("../Assets/Assistant-VariableFont_wght.ttf");
 }
 
+:root {
+    --orange: #F86F03;
+    --yellow: #FFA41B;
+    --white: #FFF6F4;
+    --blue: #525FE1;
+}
+
+* {
+	font-family: 'Assistant';
+    text-decoration: none;
+    cursor: auto;
+    list-style: none;
+}
+
 body {
 	margin: 0;
 	padding: 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	min-height: 100vh;
-	font-family: 'Assistant';
-	background: linear-gradient(to bottom, #5aadff, #97cbff, #c8e3ff);
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("https://media.istockphoto.com/vectors/gradient-blob-abstract-background-vector-id1282505760?k=6&m=1282505760&s=612x612&w=0&h=3qdPxcMLplq-nJIFftwBbPci7L8k8EN70C-rqEB7CGM=");
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+}
+
+
+.header {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    width: 100vw;
+    height: 32px;
+}
+
+/* || Glassmorphism Box */
+.home-logo, .git-btn, #sign-in, #sign-up{
+    color: var(--white);
+    background: rgba( 255, 255, 255, 0.2 );
+    border: solid 1px rgba(255,255,255,.3);
+    background-clip: padding-box;
+    backdrop-filter: blur(10px );
+    text-transform: uppercase;
+}
+
+
+/* || Project github link */
+.git-btn {
+    top: 5px;
+    right: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    position: absolute;
+    border-radius: 22px;
+}
+
+#git-icon{
+    margin-top: 6px;
+    font-size: 32px;
+    color: var(--white);
+}
+
+/* || Home box with title and logo*/
+.home-logo {
+    width: 250px;
+    height: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin: 70px;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.home-logo h1 {
+    font-size: 38px;
+}
+
+#logo {
+    color: var(--white);
+    font-size: 120px;   
+}
+
+/* || Box with Sign up and Sign in Button*/
+.form-btn {
+    margin-top: 140px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    height: 120px;
+    width: 150px;
+}
+
+#sign-in, #sign-up {
+    width: 240px;
+    height: 120px;
+    border-radius: 12px;
+    padding: 10px;
+    font-size: 38px;
+}
+
+#form-btn-clr {
+    color: var(--blue);
+}
+
+
+
+@media screen and (min-width: 420px) {
+    .home-logo {
+        width: 250px;
+        height: 220px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+        padding: 20px;
+        border-radius: 8px;
+    }
+
+    .form-btn {
+        margin-top: 10%;
+        margin-bottom: 20%;
+    }
+}
+
+@media screen and (max-height: 740px) {
+    #logo {
+        font-size: 80px;
+    }
+
+    #sign-in, #sign-up {
+        width: 180px;
+        height: 90px;
+        border-radius: 12px;
+        padding: 10px;
+        font-size: 32px;
+    }
+
+    .home-logo {
+        width: 190px;
+        height: 180px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: 0px;
+        padding: 0px;
+        border-radius: 8px;
+    }
+    .home-logo h1 {
+        font-size: 28px;
+    }
 }
