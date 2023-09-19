@@ -20,11 +20,9 @@ class Database {
 
     private function getPDO(){
 
-        $pdo = new PDO('mysql:host=localhost;dbname=superReminder', 'root', 'root');
-        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        $this->pdo = $pdo;
-
-        return $pdo;
+        $this->pdo = new PDO('mysql:host=localhost;dbname=superReminder', 'root', 'root');
+        $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        return $this->pdo;
     }
 
     public function query($statement){
