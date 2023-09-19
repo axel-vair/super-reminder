@@ -4,6 +4,7 @@
   },
     "autoload": {
         "psr-4": {
+          "Reminder\\Models\\": "models",
           "Reminder\\Models\\Helpers\\": "models/helpers"
         }
     }

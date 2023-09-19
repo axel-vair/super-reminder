@@ -7,4 +7,5 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Reminder\\Models\\Helpers\\' => array($baseDir . '/models/helpers'),
+    'Reminder\\Models\\' => array($baseDir . '/models'),
 );
