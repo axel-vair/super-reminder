@@ -54,7 +54,7 @@ use Reminder\Models\Model;
     public function verifUser($email)
     {
         $sql = "SELECT * FROM user WHERE email = :email";
-        $sql_exe = $this->db->prepare($sql);
+        $sql_exe = $this->getPDO()->prepare($sql);
         $sql_exe->execute([
             'email' => $email,
         ]);
