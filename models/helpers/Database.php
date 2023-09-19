@@ -3,6 +3,10 @@
 namespace Reminder\Models\Helpers;
 
 use PDO;
+/**
+ * Class Database that will be used to connect to the database
+ * @package Reminder\Models\Helpers
+ */
 
 class Database {
 
@@ -18,13 +22,20 @@ class Database {
         $this->db_host = $db_host;
     }
 
-    private function getPDO(){
+    /**
+     * @return PDO
+     */
+    protected function getPDO(){
 
         $this->pdo = new PDO('mysql:host=localhost;dbname=superReminder', 'root', 'root');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->pdo;
     }
 
+    /**
+     * @param $statement
+     * @return array|false
+     */
     public function query($statement){
         $request = $this->getPDO()->query($statement);
         $data = $request->fetchAll(PDO::FETCH_ASSOC);

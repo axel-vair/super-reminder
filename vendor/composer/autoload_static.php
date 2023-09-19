@@ -10,6 +10,7 @@ class ComposerStaticInit1e20f55f84f122ebc10abc7b566ddbd7
         'R' => 
         array (
             'Reminder\\Models\\Helpers\\' => 24,
+            'Reminder\\Models\\' => 16,
         ),
     );
 
@@ -17,6 +18,10 @@ class ComposerStaticInit1e20f55f84f122ebc10abc7b566ddbd7
         'Reminder\\Models\\Helpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/models/helpers',
+        ),
+        'Reminder\\Models\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/models',
         ),
     );
 
