@@ -12,14 +12,16 @@ async function handleFormSubmit(event) {
         return;
     }
 
+
     let form = new FormData(event.currentTarget);
     let url = "index.php";
     let request = new Request(url, {method: 'POST', body: form});
     let response = await fetch(request);
     let responseData = await response.json();
-    if(responseData.success){
-        {"L'inscription a réussi !"}
-    }
+
+    TODO: move form
+
+
 }
 
 formRegister.addEventListener('submit', (event) => handleFormSubmit(event));
@@ -50,7 +52,7 @@ inputLastname.addEventListener('input', (ev) => {
         lastnameError.textContent = "Veuillez renseigner votre nom !"
     }else if(element.validity.tooShort){
         lastnameError = document.getElementById('lastname-error');
-        lastnameError.textContent = "Votre nom est trop court !"
+        lastnameError.textContent = "Votre nom doit faire au moins 1 caractère !"
     }
 })
 
@@ -69,7 +71,7 @@ inputEmail.addEventListener('input', (ev) => {
         emailError.textContent = ""
     }else if(element.validity.tooShort){
         emailError = document.getElementById('email-error');
-        emailError.textContent = "Votre email est trop court !"
+        emailError.textContent = "Votre email est trop court ! (4 caractères minimum)"
     }else if(element.validity.patternMismatch) {
         emailError = document.getElementById('email-error');
         emailError.textContent = "Ce n'est pas un email valide!"
@@ -88,13 +90,10 @@ inputPassword.addEventListener('input', (ev) => {
     let element = ev.target;
     if(element.validity.valid){
         passwordError = document.getElementById('password-error');
-        passwordError.textContent = "Veuillez renseigner votre mot de passe !"
+        passwordError.textContent = "!"
     }else if(element.validity.tooShort){
         passwordError = document.getElementById('password-error');
         passwordError.textContent = "Votre mot de passe est trop court !"
-    }else if(element.validity.patternMismatch) {
-        passwordError = document.getElementById('password-error');
-        passwordError.textContent = "Ce n'est pas un mot de passe valide!"
     }
 })
 
@@ -102,5 +101,5 @@ inputPassword.addEventListener('blur', (ev) => {
     let element = ev.target;
     if(element.validity.valueMissing){
         passwordError = document.getElementById('password-error');
-        passwordError.textContent = "Ce n'est pas un mot de passe valide!"    }
+        passwordError.textContent = "Veuillez entrer un mot de passe !"    }
 })

@@ -26,12 +26,14 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
 <h1>Inscription</h1>
 <form id="form-register" method="post">
 
+    <span id="error-container"></span>
     <label for="email">Email</label>
     <span id="email-error"></span>
     <input id="email"
            name="email"
            type="email"
-           minlength="5"
+           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+           minlength="4"
            maxlength="60"
            required>
 
@@ -39,7 +41,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <span id="lastname-error"></span>
     <input id="lastname"
            name="lastname"
-           minlength="2"
+           minlength="1"
            maxlength="40"
            type="text"
            required>
@@ -48,7 +50,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <span id="firstname-error"></span>
     <input id="firstname"
            name="firstname"
-           minlength="2"
+           minlength="1"
            maxlength="40"
            type="text"
            required>
