@@ -12,17 +12,15 @@ async function handleFormSubmit(event) {
         return;
     }
 
-
     let form = new FormData(event.currentTarget);
     let url = "index.php";
     let request = new Request(url, {method: 'POST', body: form});
     let response = await fetch(request);
     let responseData = await response.json();
-
-    TODO: move form
-
-
+    console.log(responseData);
 }
+
+
 
 formRegister.addEventListener('submit', (event) => handleFormSubmit(event));
 inputFirstname.addEventListener('input', (ev) => {

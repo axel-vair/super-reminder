@@ -7,6 +7,7 @@ require 'vendor/autoload.php';
 if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !empty($_POST['firstname']) && !empty($_POST['lastname'])){
     $new_user = new User();
     $new_user->register($_POST['email'], $_POST['password'], $_POST['firstname'], $_POST['lastname']);
+    die();
 }
 
 
@@ -32,7 +33,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <input id="email"
            name="email"
            type="email"
-           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
            minlength="4"
            maxlength="60"
            required>
@@ -65,6 +66,33 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
            required>
 
     <button type="submit"  id="envoie" name="envoie">S'inscrire</button>
+</form>
+
+
+<h1>Connexion</h1>
+<form id="form-connection" method="post">
+
+    <span id="error-container"></span>
+    <label for="email">Email</label>
+    <span id="email-error"></span>
+    <input id="email"
+           name="email"
+           type="email"
+           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+           minlength="4"
+           maxlength="60"
+           required>
+
+    <label for="password">Mot de passe</label>
+    <span id="password-error"></span>
+    <input id="password"
+           name="password"
+           minlength="8"
+           maxlength="100"
+           type="password"
+           required>
+
+    <button type="submit"  id="connexion" name="connexion">Se connecter</button>
 </form>
 
 </body>

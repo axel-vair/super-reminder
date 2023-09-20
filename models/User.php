@@ -42,13 +42,13 @@ use Reminder\Models\Model;
      ]);
 
      if ($sql_insert) {
-         return  json_encode(array("success" => 'ok'));
+         echo  json_encode(array("success" => 'ok'));
 
      } else {
-         return json_encode(array("success" => false));
+         echo json_encode(array("success" => false));
      }
  } else {
-         return json_encode(array("success" => false));
+         echo json_encode(array("success" => false));
      }
  }
 
