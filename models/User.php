@@ -61,9 +61,10 @@ use Reminder\Models\Model;
         ]);
         $results = $sql_exe->fetch(PDO::FETCH_ASSOC);
         if ($results) {
-            return true;
+            echo json_encode(array("success" => "ok"));
+            $_SESSION = $results;
         } else {
-            return false;
+            echo json_encode(array("success" => false));
         }
     }
 }

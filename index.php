@@ -11,6 +11,12 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
 }
 
 
+if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-login'])){
+    $new_user = new User();
+    $new_user->verifUser($_POST['email-login']);
+    die();
+}
+
 ?>
 <!doctype html>
 <html lang="fr">
@@ -77,7 +83,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <label for="email">Email</label>
     <span id="email-error"></span>
     <input id="email"
-           name="email"
+           name="email-login"
            type="email"
            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
            minlength="4"
@@ -87,7 +93,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <label for="password">Mot de passe</label>
     <span id="password-error"></span>
     <input id="password"
-           name="password"
+           name="password-login"
            minlength="8"
            maxlength="100"
            type="password"
