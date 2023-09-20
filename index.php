@@ -20,6 +20,7 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="src/register.js" defer></script>
+    <script src="src/login.js" defer></script>
     <title>Todolist</title>
 </head>
 <body>
