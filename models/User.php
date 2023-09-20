@@ -35,20 +35,20 @@ use Reminder\Models\Model;
      $sql = "INSERT INTO user (email, password, firstname, lastname) VALUES (:email, :password, :firstname, :lastname)";
      $sql_insert = $this->getPDO()->prepare($sql);
      $sql_insert->execute([
-         'email' => $email,
-         'password' => $password,
-         'firstname' => $firstname,
-         'lastname' => $lastname
+         'email' => htmlspecialchars($email),
+         'password' => password_hash($password, PASSWORD_DEFAULT),
+         'firstname' => htmlspecialchars($firstname),
+         'lastname' => htmlspecialchars($lastname)
      ]);
 
      if ($sql_insert) {
          echo  json_encode(array("success" => 'ok'));
 
      } else {
-         echo json_encode(array("success" => false));
+         echo json_encode(array("success" => 'error insert'));
      }
  } else {
-         echo json_encode(array("success" => false));
+         echo json_encode(array("error" => 'user exist'));
      }
  }
 
@@ -61,9 +61,16 @@ use Reminder\Models\Model;
         ]);
         $results = $sql_exe->fetch(PDO::FETCH_ASSOC);
         if ($results) {
-            return true;
+            $_SESSION = $results;
+            return $this->response();
         } else {
             return false;
         }
+
+    }
+
+    public function response()
+    {
+        echo json_encode(array("success" => 'ok'));
     }
 }
