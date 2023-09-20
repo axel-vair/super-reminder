@@ -13,15 +13,14 @@ async function handleFormSubmit(event) {
     }
 
     let form = new FormData(event.currentTarget);
-    let url = "index.php";
+    let url = "register.php";
     let request = new Request(url, {method: 'POST', body: form});
     let response = await fetch(request);
     let responseData = await response.json();
     if(responseData.success === 'ok'){
         let error = document.getElementById('error-container');
         error.textContent = "Inscription réussie"
-
-    }else{
+    }else if(responseData.success === 'not ok'){
         let error = document.getElementById('error-container');
         error.textContent = "Erreur lors de l'inscription"
 
