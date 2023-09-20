@@ -1,0 +1,57 @@
+<?php
+namespace Reminder\Models;
+require 'vendor/autoload.php';
+
+if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-login'])){
+    $new_user = new User();
+    $new_user->verifUser($_POST['email-login']);
+    die();
+}
+
+?>
+
+
+<!doctype html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="src/login.js" defer></script>
+
+    <title>Todolist</title>
+</head>
+<body>
+
+
+<h1>Connexion</h1>
+<form id="form-connection" method="post">
+
+    <span id="error-container-login"></span>
+    <label for="email-login">Email</label>
+    <span id="email-error-login"></span>
+    <input id="email-login"
+           name="email-login"
+           type="email"
+           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+           minlength="4"
+           maxlength="60"
+           required>
+
+    <label for="password-login">Mot de passe</label>
+    <span id="password-error-login"></span>
+    <input id="password-login"
+           name="password-login"
+           minlength="8"
+           maxlength="100"
+           type="password"
+           required>
+
+    <button type="submit"  id="connexion" name="connexion">Se connecter</button>
+</form>
+
+
+
+</body>
+</html>

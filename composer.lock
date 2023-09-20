@@ -70,5 +70,9 @@
     "prefer-lowest": false,
     "platform": [],
     "platform-dev": [],
+<<<<<<< HEAD
     "plugin-api-version": "2.6.0"
+=======
+    "plugin-api-version": "2.3.0"
+>>>>>>> 677b3f7788db74f75182e156b700a444550e2bc8
 }

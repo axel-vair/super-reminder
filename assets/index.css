@@ -137,6 +137,7 @@ body {
     padding: 5px;
     font-size: 38px;
     text-shadow: 2px 2px 4px var(--yellow);
+    color: var(--white)
 }
 
 #sign-in:hover, #sign-up:hover {
