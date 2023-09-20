@@ -1,5 +1,12 @@
-var sendTo = document.getElementById("sign-up")
+let formPopup = document.querySelector(".main-form")
+let SignupBTN = document.querySelector("#sign-up")  
+let container = document.querySelector(".container")
+let Popup = false;
 
-sendTo.addEventListener("click", function () {
-    window.location.href = "./lazone.html"
-});
+SignupBTN.addEventListener("click", displayForm)
+
+function displayForm() {
+    formPopup.style.display = "block"
+    container.style.filter = "blur(3px)"
+    Popup = true
+}

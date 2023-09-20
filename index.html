@@ -1,80 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
+<meta lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/index.css">
+    <link rel="stylesheet" href="./assets/signup.css">
     <title>TodoList</title>
 </head>
-<body>
-    <header class="header">
-        <div class="git-btn">
-            <a id="git-icon" href="https://github.com/axel-vair/super-reminder" target="_blank">
-                <span><ion-icon name="logo-github"></ion-icon></span>
-            </a>
+<header class="header">
+    <div class="git-btn">
+        <a id="git-icon" href="https://github.com/axel-vair/super-reminder" target="_blank">
+            <span><ion-icon name="logo-github"></ion-icon></span>
+        </a>
+    </div>
+</header>
+<section class="container">
+    <main class="section-logo">
+        <div class="home-logo">
+            <span id="logo"><ion-icon name="list-outline"></ion-icon></span>
+            <span id="logo-title"><h1>todo</h1></span>
         </div>
-    </header>
-    <section class="container">
-        <main class="section-logo">
-            <div class="home-logo">
-                <span id="logo"><ion-icon name="list-outline"></ion-icon></span>
-                <span id="logo-title"><h1>todo</h1></span>
-            </div>
-        </main>
-        <div class="form-btn">
-            <button id="sign-up">sign <span id="form-btn-clr">up</span></button>
-            <button id="sign-in">sign <span id="form-btn-clr">in</span></button>
-        </div>
-    </section>
-</body>
+    </main>
+    <div class="form-btn">
+        <button id="sign-up">sign <span id="form-btn-clr">up</span></button>
+        <button id="sign-in">sign <span id="form-btn-clr">in</span></button>
+    </div>
+</section>
+<div class="main-form" style="display: none">
+    <!--<input type="checkbox" id="chk" aria-hidden="true">-->
+
+    <div class="signup">
+        <form method="POST" action="" class="sign">
+            <label for="chk" aria-hidden="true">Sign up</label>
+            <input type="text" name="firstname" placeholder="firstname" id="firstname">
+            <input type="text" name="lastname" placeholder="lastname" id="lastname">
+            <input type="email" name="email" placeholder="email" id="email">
+            <p id="email_error" style="color: #E7002A;"></p>
+            <p id="email_error_ajax" style="color: #E7002A;"></p>
+            <input type="email" name="emailCheckout" placeholder="confirm email" id="emailCheckout"> 
+            <p id="email_checkout_error" style="color: #E7002A;"></p>
+            <input type="password" name="password" placeholder="password" id="password">
+            <p id="password_error" style="color: #E7002A;"></p>
+            <input type="password" name="passwordCheckout" placeholder="confirm password" id="passwordCheckout">
+            <p id="password_checkout_error" style="color: #E7002A;"></p>
+            <button>sign up</button>
+        </form>
+    </div>
+    </div>
+<script type="module" src="./src/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="./src/script.js"></script>
-<script src="./src/anime.min.js"></script>
-<script>
-/*
-let animationBack = anime({
-  targets: '.home-logo',
-  keyframes: [
-    {translateX: -50},
-    {translateY: -50},
-    {translateX: 100},
-    {translateY: 25},
-    {translateX: -25}
-  ],
-  duration: 5000,
-  direction: 'alternate',
-  easing: 'easeInOutSine',
-  loop: true
-});
-
-let animationSignup = anime({
-  targets: '#sign-up',
-  keyframes: [
-    {translateX: -1000},
-    {translateX: 2000},
-    {translateY: 1700},
-    {translateX: -700},
-    {translateX: 1800},
-    {translateY: -2100}
-  ],
-  duration: 3000,
-  direction: 'alternate',
-  easing: 'easeInOutQuad',
-  loop: true
-});
-
-let animationSignin = anime({
-  targets: '#sign-in',
-  keyframes: [
-    {translateX: -25},
-    {translateX: 50}
-  ],
-  duration: 4000,
-  direction: 'alternate',
-  easing: 'easeInOutQuad',
-  loop: true
-});*/
-
-</script>
 </html>
