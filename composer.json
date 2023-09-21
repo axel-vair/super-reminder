@@ -5,7 +5,9 @@
     "autoload": {
         "psr-4": {
           "Reminder\\Models\\": "models",
-          "Reminder\\Models\\Helpers\\": "models/helpers"
+          "Reminder\\Models\\Helpers\\": "models/helpers",
+          "Reminder\\Controller\\": "controller",
+          "Reminder\\Partials\\": "partials"
         }
     }
 }

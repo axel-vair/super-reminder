@@ -1,10 +1,8 @@
 <?php
 session_start();
-
 if($_SESSION){
    echo '<nav>
         <ul>
-            <li><a role="button" id="btn-profil" href="profile.php">Profil</a> </li>
             <li><a role="button" id="btn-logout" href="logout.php">Déconnexion</a></li>
         </ul>
     </nav>';

@@ -7,7 +7,6 @@ if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-log
     $new_user->verifUser($_POST['email-login']);
     die();
 }
-
 ?>
 
 

@@ -9,12 +9,18 @@ class ComposerStaticInit1e20f55f84f122ebc10abc7b566ddbd7
     public static $prefixLengthsPsr4 = array (
         'R' => 
         array (
+            'Reminder\\Partials\\' => 18,
             'Reminder\\Models\\Helpers\\' => 24,
             'Reminder\\Models\\' => 16,
+            'Reminder\\Controller\\' => 20,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Reminder\\Partials\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/partials',
+        ),
         'Reminder\\Models\\Helpers\\' => 
         array (
             0 => __DIR__ . '/../..' . '/models/helpers',
@@ -22,6 +28,10 @@ class ComposerStaticInit1e20f55f84f122ebc10abc7b566ddbd7
         'Reminder\\Models\\' => 
         array (
             0 => __DIR__ . '/../..' . '/models',
+        ),
+        'Reminder\\Controller\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/controller',
         ),
     );
 

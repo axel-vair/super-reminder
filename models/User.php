@@ -42,13 +42,13 @@ use Reminder\Models\Model;
      ]);
 
      if ($sql_insert) {
-         echo  json_encode(array("success" => 'ok'));
+         echo  json_encode(["success" => 'ok']);
 
      } else {
-         echo json_encode(array("success" => 'error insert'));
+         echo json_encode(["success" => 'error insert']);
      }
  } else {
-         echo json_encode(array("error" => 'user exist'));
+         echo json_encode(["error" => 'user exist']);
      }
  }
 
@@ -78,12 +78,12 @@ use Reminder\Models\Model;
 
     public function responseCorrect()
     {
-        echo json_encode(array("success" => 'ok'));
+        echo json_encode(["success" => 'ok']);
     }
 
     public function responseFalse()
     {
-        echo json_encode(array("error" => 'error'));
+        echo json_encode(["error" => 'error']);
     }
 
     public function logout()
