@@ -16,6 +16,7 @@ async function handleFormSubmit(event) {
     if (responseData.success === "ok") {
         let error = document.getElementById('error-container-login');
         error.textContent = "Connexion réussie"
+        window.location.href = "todolist.php";
     }else{
         let error = document.getElementById('error-container-login');
         error.textContent = "Erreur lors de la connexion"

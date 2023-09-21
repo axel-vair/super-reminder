@@ -61,16 +61,35 @@ use Reminder\Models\Model;
         ]);
         $results = $sql_exe->fetch(PDO::FETCH_ASSOC);
         if ($results) {
-            $_SESSION = $results;
-            return $this->response();
+            $hashed_password = $results['password'];
+            if (password_verify($_POST['password-login'], $hashed_password)) {
+                session_start();
+                $_SESSION = $results;
+                return $this->responseCorrect();
+            } else {
+                return $this->responseFalse();
+            }
+
         } else {
             return false;
         }
 
     }
 
-    public function response()
+    public function responseCorrect()
     {
         echo json_encode(array("success" => 'ok'));
     }
+
+    public function responseFalse()
+    {
+        echo json_encode(array("error" => 'error'));
+    }
+
+    public function logout()
+    {
+        session_destroy();
+        header('Location: index.php');
+    }
+
 }

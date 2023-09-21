@@ -20,14 +20,16 @@ async function handleFormSubmit(event) {
     if(responseData.success === 'ok'){
         let error = document.getElementById('error-container');
         error.textContent = "Inscription réussie"
+        setTimeout(() => {
+            window.location.href = "login.php";
+        }
+        , 2000);
     }else if(responseData.success === 'not ok'){
         let error = document.getElementById('error-container');
         error.textContent = "Erreur lors de l'inscription"
 
     }
 }
-
-
 
 formRegister.addEventListener('submit', (event) => handleFormSubmit(event));
 inputFirstname.addEventListener('input', (ev) => {
