@@ -1,7 +1,15 @@
 <?php
+require "vendor/autoload.php";
 require_once "partials/header.php";
+use Reminder\Models\Todo;
 
-
+if($_POST && isset($_POST['input_todo'])){
+    $user_id = $_SESSION['id'];
+    $title = $_POST['input_title_todo'];
+    $task = $_POST['input_todo'];
+    $todo = new Todo();
+    $todo->todoInsert($user_id, $title, $task);
+}
 ?>
 <!doctype html>
 <html lang="fr">
@@ -20,8 +28,12 @@ require_once "partials/header.php";
     <div id="container-todo">
         <section id="container-form">
             <form method="post" id="todo-form">
+                <label id="label_title_todo" for="input_title_todo">Titre :</label>
+                <input id="input_title_todo" name="input_title_todo" type="text" required>
+
                 <label id="label_todo" for="input_todo">Tâches à réaliser :</label>
                 <input id="input_todo" name="input_todo" type="text" required>
+
                 <button id="submit" type="submit">Ajouter</button>
             </form>
         </section>
