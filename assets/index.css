@@ -200,12 +200,12 @@ body {
         background-image: url("./blob-scene-9-16.png");
     }
 
-    .git-btn {
+    .git-btn, .register-btn, .login-btn{
         width: calc(var(--git-btn-size) - 2vh);
         height: calc(var(--git-btn-size) - 2vh);
     }
-    #git-icon {
-        font-size: calc(var(--btn-size) - 3vh);
+    #git-icon, #btn-register, #btn-login{
+        font-size: calc(var(--btn-size) - 4vh);
     }
 
     #logo-title {
@@ -220,6 +220,11 @@ body {
         width: 55%;
         height: 210px;
         border-radius: 22px;
+    }
+
+    .git-btn:hover, .register-btn:hover, .login-btn:hover {
+        width: calc(var(--git-btn-size) - 1vh);
+        height: calc(var(--git-btn-size) - 1vh);
     }
     
 }
