@@ -1,38 +1,33 @@
-let submitTodo =  document.getElementById('submit');
+let btnAddTodo = document.getElementById('submit');
+let todoForm = document.getElementById('todo-form');
+if(todoForm){
+    todoForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        let form = new FormData(e.target);
+        let url = 'controller/todolist-add.php';
+        let request = new Request(url, {method: 'POST', body: form});
+        let response = await fetch(request);
+        getTodo();
+        let responseData = await response.json();
+    })
+}
 
-submitTodo.addEventListener('click', async (ev) => {
-    ev.preventDefault();
-    let url = "controller/todolist-data.php";
-    let request = new Request(url, {method: 'POST'});
-    let response = await fetch(request);
-    let responseData = await response.json();
-    if (responseData) {
-        let todoList = document.getElementById('list-todo');
-        console.log(responseData)
-        responseData.forEach(val => {
+async function getTodo() {
+        let url = 'controller/todolist-data.php';
+        let request = new Request(url);
+        let response = await fetch(request);
+        let responseData = await response.json();
+
+        let todoList = document.getElementById('list-todo')
+        todoList.innerHTML = '';
+        responseData.forEach((todo) => {
             let li = document.createElement('li');
-            let template = `<div class="todo-item">
-                                    <div class="todo-item-title">   
-                                        <span class="todo-item-title">${val.title}</span>
-                                        <span class="todo-item-task">${val.task}</span>
-                                        <span class="todo-item-date">${val.createdAt}</span>
-                                    </div>
-                                    <div class="todo-item-actions">
-                                        <button class="todo-item-actions-button todo-item-actions-button--done" data-id="${val.id}">Fait</button>
-                                        <button class="todo-item-actions-button todo-item-actions-button--delete" data-id="${val.id}">Supprimer</button>
-                                    </div>
-                                </div>`;
-            li.innerHTML = template;
+            li.textContent = todo.title;
             todoList.appendChild(li);
-        });
+        })
 
-    } else {
-        let error = document.getElementById('error');
-        error.textContent = "Erreur lors de la récupération des données"
     }
-})
 
-
-
+getTodo();
 
 

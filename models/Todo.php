@@ -23,8 +23,7 @@ class Todo extends Model
         }
     }
 
-    public function displayTodo(){
-          $user_id = 86;
+    public function displayTodo($user_id){
         $sql = "SELECT * FROM todo WHERE user_id = :user_id";
         $sql_select = $this->getPDO()->prepare($sql);
         $sql_select->execute([
