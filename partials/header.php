@@ -1,4 +1,4 @@
-<!-- le link style içi c'est index.css -->
+<!-- le style içi c'est ./assets/index.css -->
 
 <header class="header">
     <div class="git-btn">

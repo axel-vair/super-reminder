@@ -58,6 +58,10 @@ body {
     align-items: center;
 }
 
+.home-logo {
+    animation: scaleAnimation 7s ease-in-out infinite alternate;
+}
+
 /* || Glassmorphism Box */
 .home-logo, .git-btn, #sign-in, #sign-up, .register-btn, .login-btn{
     background: rgba( 255, 255, 255, 0.2 );
@@ -88,7 +92,7 @@ body {
     transition: 0.5s ease;
 }
 .home-logo:hover {
-    padding: 20px;
+    padding: 5px;
 }
 
 
@@ -99,7 +103,8 @@ body {
 
 #git-icon, #btn-register, #btn-login{
     margin-top: 15%;
-    font-size: calc(var(--btn-size) - 2vh);
+    font-size: calc(var(--btn-size) - 3vh);
+    animation: scaleAnimation 2s ease-in-out infinite alternate;
 }
 /* || Home box with title and logo*/
 .home-logo {
@@ -146,7 +151,49 @@ body {
     font-size: 40px;
 }
 
+#sign-up {
+    animation: signupAnimation 7s ease-out infinite alternate;
+}
 
+#sign-in {
+    animation: signinAnimation 7s ease-out infinite alternate;
+}
+
+@keyframes signupAnimation {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    34% {
+        transform: translateX(-7px);
+    }
+    67% {
+        transform: translateX(7px);
+    }
+}
+
+@keyframes signinAnimation {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(7px);
+    }
+    75% {
+        transform: translateX(-7px);
+    }
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 
 @media all and (max-width: 740px) {
     body {
