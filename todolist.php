@@ -1,5 +1,20 @@
 <?php
+
+require 'vendor/autoload.php';
+use Reminder\Models\Todo;
 require_once "partials/header.php";
+
+if($_SESSION){
+    if(isset($_POST)){
+        $user_id = $_SESSION['id'];
+        $title = $_POST['input_title_todo'];
+        $task = $_POST['input_todo'];
+        $todo = new Todo();
+        $todo->todoInsert($user_id, $title, $task);
+    }else{
+        header('Location: login.php');
+    }
+}
 
 ?>
 <!doctype html>

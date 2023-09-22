@@ -17,17 +17,18 @@ class Todo extends Model
         ]);
 
         if ($sql_insert) {
-            echo  json_encode(["success" => 'ok']);
+            return  json_encode(["success" => 'ok']);
         } else {
-            echo json_encode(["success" => 'error insert']);
+            return json_encode(["success" => 'error insert']);
         }
     }
 
     public function displayTodo(){
+          $user_id = 86;
         $sql = "SELECT * FROM todo WHERE user_id = :user_id";
         $sql_select = $this->getPDO()->prepare($sql);
         $sql_select->execute([
-            'user_id' => $_SESSION['id']
+            'user_id' => $user_id
         ]);
         $result = $sql_select->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($result);
