@@ -3,6 +3,10 @@
     src: url("../Assets/Assistant-VariableFont_wght.ttf");
 }
 
+* {
+    font-family: "Assistant";
+}
+
 :root {
     --orange: #F86F03;
     --yellow: #FFA41B;
@@ -12,11 +16,30 @@
     --git-btn-size: 8vh;
 }
 
+* {
+	font-family: 'Assistant';
+    text-decoration: none;
+    cursor: default;
+    list-style: none;
+    color: var(--white);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url("./blob-scene-16-9.png");
+    transition: background-image 0.5s ease-in-out;
+    overflow: hidden;
+}
+
+
 .main-form {
     width: 100vw;
     height: 100vh;
     display: flex;
-    position: absolute;
     top: 0;
     left: 0;
     justify-content: center;
@@ -24,8 +47,7 @@
     flex-direction: column;
 }
 
-/* Styles pour le formulaire d'inscription */
-.signup {/* Le formulaire est initialement masqué */
+.signup {
     max-width: 400px;
     margin: 20px auto;
     padding: 20px;
@@ -37,22 +59,23 @@
     transition: 0.5s ease;
     border-radius: 22px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
-
-.signup {
+    justify-content: row;
     text-align: center;
 }
 
-.sign {
+
+#form-register {
+    width: 380px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    width: 100%;
+    width: 70%;
     padding: 10px;
     margin: 8px 0;
     border: 1px solid #ccc;
@@ -61,13 +84,22 @@ input[type="password"] {
     color: black;
 }
 
+label {
+    margin: 10px;
+}
+
 .button-pos {
     width: 100%;
     height: auto;
+    margin-top: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    display: flex;
 }
 
 button {
-    width: 30%;
+    width: 40%;
     padding: 12px 0;
     margin-left: 20px;
     margin-right: 20px;
@@ -75,14 +107,42 @@ button {
     color: var(--white);
     border: none;
     border-radius: 5px;
-    font-size: 18px;
-    cursor: pointer;
+    font-size: 16px;
     border: solid 0.5px black;
     transition: all 0.5s ease;
 }
 
 button:hover {
     background-color: var(--yellow);
-    border: solid 0.5px var(--white);
     color: black;
+}
+
+@media all and (max-width: 740px) {
+
+body {
+    background-image: url("./blob-scene-9-16.png");
+}
+    
+#form-register {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.button-pos {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 8px;
+    margin: 8px 0;
+    font-size: 12px;
+}
+
+label {
+    margin: 7px;
+}
 }
