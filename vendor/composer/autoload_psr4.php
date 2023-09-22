@@ -6,6 +6,9 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
+<<<<<<< HEAD
+=======
     'Reminder\\Models\\Helpers\\' => array($baseDir . '/models/helpers'),
     'Reminder\\Models\\' => array($baseDir . '/models'),
+>>>>>>> 677b3f7788db74f75182e156b700a444550e2bc8
 );

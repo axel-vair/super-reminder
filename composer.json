@@ -1,4 +1,8 @@
 {
+<<<<<<< HEAD
+    "require": {
+        "altorouter/altorouter": "1.1.0"
+=======
   "require": {
     "altorouter/altorouter": "1.1.0"
   },
@@ -7,5 +11,6 @@
           "Reminder\\Models\\": "models",
           "Reminder\\Models\\Helpers\\": "models/helpers"
         }
+>>>>>>> 677b3f7788db74f75182e156b700a444550e2bc8
     }
 }
