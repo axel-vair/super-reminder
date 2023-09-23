@@ -1,4 +1,5 @@
 <?php
+// Page to add a new todo
 session_start();
 require "../vendor/autoload.php";
 use Reminder\Models\Todo;

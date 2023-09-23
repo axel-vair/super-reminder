@@ -1,7 +1,17 @@
+// Tags all buttons and forms
 let todoForm = document.getElementById('todo-form');
 let doneBtn = document.getElementsByClassName('done');
 let deleteBtn = document.getElementsByClassName('delete-todo');
 
+// Add event listener to the form
+// Prevent default
+// Create a new form data object and add the form to it as a parameter
+// Create a new request object and add the url and method to it
+// Fetch the request and wait for the response
+// Parse the response as json
+// Add the response to the DOM
+// Call the getTodo function
+// Parse the response as json
 if(todoForm){
     todoForm.addEventListener('submit', async (e) => {
         e.preventDefault();
@@ -14,6 +24,11 @@ if(todoForm){
     })
 }
 
+/**
+ * Get all todos from the database and add them to the DOM as a list
+ * Call the updateTodo and deleteTodo functions to add event listeners to the buttons
+ * @returns {Promise<void>}
+ */
 async function getTodo() {
     let url = 'controller/todolist-data.php';
         let request = new Request(url);
@@ -40,6 +55,11 @@ async function getTodo() {
         })
 }
 
+/**
+ * Delete a todo from the database and call the getTodo function to update the DOM
+ *
+ * @returns {Promise<void>}
+ */
 async function deleteTodo() {
     for(let i = 0; i < deleteBtn.length; i++) {
         deleteBtn[i].addEventListener('click', async (e) => {
@@ -53,6 +73,11 @@ async function deleteTodo() {
         })
     }
 }
+
+/**
+ * Update a todo in the database and call the getTodo function to update the DOM
+ *
+ */
 function updateTodo() {
     for (let i = 0 ; i < doneBtn.length; i++) {
         doneBtn[i].addEventListener('click',  async (e) => {

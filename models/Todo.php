@@ -6,6 +6,13 @@ use PDO;
 
 class Todo extends Model
 {
+    /**
+     * Function to insert a new todo in the database with the user id
+     * @param $user_id
+     * @param $title
+     * @param $task
+     * @return false|string
+     */
     public function todoInsert($user_id, $title, $task)
     {
         $sql = "INSERT INTO todo (user_id, title, task, createdAt, status) VALUES (:user_id, :title, :task, NOW(), 0)";
@@ -23,6 +30,12 @@ class Todo extends Model
         }
     }
 
+    /**
+     *
+     * Function to display all todo from the database with the user id
+     * @param $user_id
+     * @return false|string
+     */
     public function displayTodo($user_id){
         $sql = "SELECT * FROM todo WHERE user_id = :user_id";
         $sql_select = $this->getPDO()->prepare($sql);
@@ -33,6 +46,12 @@ class Todo extends Model
         return json_encode($result);
     }
 
+    /**
+     *
+     * Function to delete a todo from the database with the todo id
+     * @param $id_todo
+     * @return false|string
+     */
     public function deleteTodo($id_todo){
         $sql = "DELETE FROM todo WHERE id = :id_todo";
         $sql_delete = $this->getPDO()->prepare($sql);
@@ -43,6 +62,11 @@ class Todo extends Model
 
     }
 
+    /**
+     * Function to update a todo from the database with the todo id
+     * @param $id_todo
+     * @return false|string
+     */
     public function updateTodo($id_todo){
         $sql = "UPDATE todo SET status = 1 WHERE id = :id_todo";
         $sql_update = $this->getPDO()->prepare($sql);

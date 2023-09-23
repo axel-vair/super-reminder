@@ -1,4 +1,5 @@
 <?php
+// Page to display all. This page is called by the ajax request in todolist.
 require "../vendor/autoload.php";
 session_start();
 
