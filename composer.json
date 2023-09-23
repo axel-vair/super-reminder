@@ -1,8 +1,4 @@
 {
-<<<<<<< HEAD
-    "require": {
-        "altorouter/altorouter": "1.1.0"
-=======
   "require": {
     "altorouter/altorouter": "1.1.0"
   },
@@ -13,6 +9,6 @@
           "Reminder\\Controller\\": "controller",
           "Reminder\\Partials\\": "partials"
         }
->>>>>>> 677b3f7788db74f75182e156b700a444550e2bc8
+
     }
 }
