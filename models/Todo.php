@@ -32,5 +32,25 @@ class Todo extends Model
         $result = $sql_select->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($result);
     }
+
+    public function deleteTodo($id_todo){
+        $sql = "DELETE FROM todo WHERE id = :id_todo";
+        $sql_delete = $this->getPDO()->prepare($sql);
+        $sql_delete->execute([
+            'id_todo' => $id_todo
+        ]);
+        return json_encode(["suppress" => 'ok']);
+
+    }
+
+    public function updateTodo($id_todo){
+        $sql = "UPDATE todo SET status = 1 WHERE id = :id_todo";
+        $sql_update = $this->getPDO()->prepare($sql);
+        $sql_update->execute([
+            'id_todo' => $id_todo
+        ]);
+        return json_encode(["update" => 'ok']);
+    }
 }
+
 
