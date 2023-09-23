@@ -17,13 +17,15 @@ if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-log
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/login.css">
     <script src="src/login.js" defer></script>
 
     <title>Todolist</title>
 </head>
 <body>
 
-
+<div class="main-form">
+<div class="signin">
 <h1>Connexion</h1>
 <form id="form-connection" method="post">
 
@@ -46,11 +48,11 @@ if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-log
            maxlength="100"
            type="password"
            required>
-
-    <button type="submit"  id="connexion" name="connexion">Se connecter</button>
+    <div class="button-pos"></div>
+        <button type="submit"  id="connexion" name="connexion">Se connecter</button>
+    </div>
 </form>
-
-
-
+</div>
+</div>
 </body>
 </html>

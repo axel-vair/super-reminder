@@ -8,7 +8,6 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     die();
 }
 ?>
-
 <!doctype html>
 <html lang="fr">
 <head>
@@ -16,14 +15,16 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./assets/register.css">
     <script src="src/register.js" defer></script>
     <title>Todolist</title>
 </head>
 <body>
 
-<h1>Inscription</h1>
+<div class="main-form">
+<div class="signup">
 <form id="form-register" method="post">
-
+<h1>Inscription</h1>
     <span id="error-container"></span>
     <label for="email">Email</label>
     <span id="email-error"></span>
@@ -61,8 +62,12 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
            maxlength="100"
            type="password"
            required>
-
-    <button type="submit"  id="envoie" name="envoie">S'inscrire</button>
+       <div class="button-pos">
+              <button type="submit"  id="envoie" name="envoie">S'inscrire</button>
+              <button>Se connecter</button>
+       </div>
 </form>
+</div>
+</div>
 </body>
 </html>
