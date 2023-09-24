@@ -31,28 +31,38 @@ if(todoForm){
  */
 async function getTodo() {
     let url = 'controller/todolist-data.php';
-        let request = new Request(url);
-        let response = await fetch(request);
-        let responseData = await response.json();
-        let todoList = document.getElementById('list-todo')
-        todoList.innerHTML = '';
+    let request = new Request(url);
+    let response = await fetch(request);
+    let responseData = await response.json();
+    let todoList = document.getElementById('list-todo')
+    let doneDiv = document.getElementById('done');
+    todoList.innerHTML = '';
+    doneDiv.innerHTML = '';
+    responseData.forEach((todo) => {
+        let li = document.createElement('li');
+        let template = `
+                <span>${todo.title}</span>
+                <span>${todo.task}</span>
+                <span>Créée le : ${todo.createdAt}</span>
+                <span class="done" data-done="${todo.id}">Done</span>
+                <span class="delete-todo" data-delete="${todo.id}">X</span>
+        `;
 
-        responseData.forEach((todo) => {
-            let li = document.createElement('li');
-            let template = `
-                    <span>${todo.title}</span>
-                    <span>${todo.task}</span>
-                    <span>${todo.createdAt}</span>
-                    <span class="done" data-done="${todo.id}">Done</span>
-                    <span class="delete-todo" data-delete="${todo.id}">X</span>
-            `;
+        if(todo.status === 1) {
+            template += `<span>Terminée le : ${todo.updatedAt}</span>`;
+            li.innerHTML = template;
+            doneDiv.appendChild(li);
+
+
+        }else{
             li.innerHTML = template;
             todoList.appendChild(li);
-            updateTodo();
-            deleteTodo();
+        }
 
+        updateTodo();
+        deleteTodo();
 
-        })
+    })
 }
 
 /**
@@ -94,5 +104,7 @@ function updateTodo() {
         })
     }
 }
+
+
 getTodo();
 

@@ -67,11 +67,12 @@ class Todo extends Model
      * @param $id_todo
      * @return false|string
      */
-    public function updateTodo($id_todo){
-        $sql = "UPDATE todo SET status = 1 WHERE id = :id_todo";
+    public function updateTodo($id_todo, $updatedAt){
+        $sql = "UPDATE todo SET status = 1, updatedAt = :updatedAt WHERE id = :id_todo";
         $sql_update = $this->getPDO()->prepare($sql);
         $sql_update->execute([
-            'id_todo' => $id_todo
+            'id_todo' => $id_todo,
+            'updatedAt' => $updatedAt
         ]);
         return json_encode(["update" => 'ok']);
     }
