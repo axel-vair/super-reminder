@@ -50,7 +50,7 @@ if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-log
            type="password"
            required>
     <div class="button-pos"></div>
-        <button type="submit"  id="connexion" name="connexion">Se connecter</button>
+        <button type="submit" id="connexion" name="connexion">Se connecter</button>
     </div>
 </form>
 </div>
