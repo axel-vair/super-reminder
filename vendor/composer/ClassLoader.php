@@ -473,6 +473,7 @@ class ClassLoader
 
         return $file;
     }
+}
 
     /**
      * Returns the currently registered loaders keyed by their corresponding vendor directories.
