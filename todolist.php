@@ -13,23 +13,41 @@ if(!$_SESSION){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="src/todolist.js" defer></script>
+    <link rel="stylesheet" href="./super-reminder/assets/board.css">
     <title>Todolist</title>
 </head>
 <body>
-    <div id="title-div">
-        <h1>Liste de <?= $_SESSION['firstName'] . ' ' . $_SESSION['lastName'] ?></h1>
+<aside class="profil-side">
+    <div class="profil">
+    <div class="user">
+        <span id="user-picture"><ion-icon name="person-outline"></ion-icon></span>
     </div>
-
-    <div id="container-todo">
-        <section id="container-form">
+    <div class="user-info">
+        <!--<span id="info">Liste de <?= $_SESSION['firstName'] . ' ' . $_SESSION['lastName'] ?></span>-->
+        <ul>
+            <input id="search-todo" type="text" name="search" placeholder="rechercher">
+            <li>prénom</li>
+            <li>nom</li>
+            <li>statut</li>
+        </ul>
+        <div class="todo-group">groupe tache :
+        </div>
+    </div>
+    <div class="logout-btn">
+        <a role="button" id='btn-logout' href="logout.php">
+            <span id="span-logout"><ion-icon name="log-out-outline"></ion-icon></span>
+        </a>
+    </div>
+    </div>
+</aside>
+<main class="todo-list">
+<header class="profil-header"><span id="profil-list"><ion-icon id="list-open" name="list-outline" alt="list-outline"></ion-icon></span></header>
+    <div class="todo">
+    <section id="container-form">
             <span id="error"></span>
             <form method="post" id="todo-form">
-                <label id="label_title_todo" for="input_title_todo">Titre :</label>
-                <input id="input_title_todo" name="input_title_todo" type="text" required>
-
-                <label id="label_todo" for="input_todo">Tâches à réaliser :</label>
-                <input id="input_todo" name="input_todo" type="text" required>
+                <input id="input_title_todo" name="input_title_todo" placeholder="Ajouter un titre" type="text" required>
+                <input id="input_todo" name="input_todo" placeholder="Tâches à réaliser" type="text" required>
 
                 <button id="submit" type="submit">Ajouter</button>
             </form>
@@ -46,6 +64,10 @@ if(!$_SESSION){
             <ul id="done">
             </ul>
         </section>
-    </div>
+        </div>
+</main>
 </body>
+<script src="./super-reminder/src/script.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
