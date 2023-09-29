@@ -1,6 +1,5 @@
 <?php
 require 'vendor/autoload.php';
-require_once "partials/header.php";
 if(!$_SESSION){
     header('Location: login.php');
 }
@@ -13,7 +12,7 @@ if(!$_SESSION){
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="./super-reminder/assets/board.css">
+    <link rel="stylesheet" href="./assets/board.css">
     <title>Todolist</title>
 </head>
 <body>
