@@ -45,8 +45,8 @@ async function getTodo() {
                 <span class="todo-task">${todo.task}</span>
                 <span class="todo-date">Créée le : ${todo.createdAt}</span>
                 <div class="todo-btn">
-                <span class="done" data-done="${todo.id}">Done</span>
-                <span class="delete-todo" data-delete="${todo.id}">X</span>
+                <span class="done" data-done="${todo.id}"><ion-icon name="checkmark-done-sharp"></ion-icon></span>
+                <span class="delete-todo" data-delete="${todo.id}"><ion-icon name="close-sharp"></ion-icon></span>
                 </div>
         `;
 
