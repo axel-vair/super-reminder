@@ -1,5 +1,6 @@
 <?php
 namespace Reminder\Models;
+
 require 'vendor/autoload.php';
 
 if(isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-login'])){

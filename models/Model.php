@@ -14,5 +14,4 @@ abstract class Model extends Database
     {
         parent::__construct();
     }
-
 }

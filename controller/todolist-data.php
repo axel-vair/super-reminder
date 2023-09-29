@@ -5,5 +5,5 @@ session_start();
 
 use Reminder\Models\Todo;
 
-    $todo = new Todo();
-    echo $todo->displayTodo($_SESSION['id']);
+$todo = new Todo();
+echo $todo->displayTodo($_SESSION['id']);

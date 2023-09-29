@@ -73,7 +73,6 @@ async function getTodo() {
 async function deleteTodo() {
     for(let i = 0; i < deleteBtn.length; i++) {
         deleteBtn[i].addEventListener('click', async (e) => {
-
             let todoId = e.target.getAttribute('data-delete');
             let url = 'controller/todolist-delete.php?delete=' + todoId;
             let request = new Request(url, {method: 'DELETE'});
