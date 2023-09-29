@@ -9,6 +9,5 @@
           "Reminder\\Controller\\": "controller",
           "Reminder\\Partials\\": "partials"
         }
-
     }
 }

@@ -449,11 +449,11 @@ class ClassLoader
             return false;
         }
         if (null !== $this->apcuPrefix) {
-            $file = apcu_fetch($this->apcuPrefix.$class, $hit);
-            if ($hit) {
+            $file = apcu_fetch($this->apcuPrefix.$class, $this);
+            if ($this) {
                 return $file;
             }
-        }
+        
 
         $file = $this->findFileWithExtension($class, '.php');
 
@@ -473,6 +473,7 @@ class ClassLoader
 
         return $file;
     }
+}
 
     /**
      * Returns the currently registered loaders keyed by their corresponding vendor directories.
@@ -481,7 +482,7 @@ class ClassLoader
      */
     public static function getRegisteredLoaders()
     {
-        return self::$registeredLoaders;
+        return (self::$registeredLoaders);
     }
 
     /**

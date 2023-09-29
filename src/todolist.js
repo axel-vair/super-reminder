@@ -41,11 +41,13 @@ async function getTodo() {
     responseData.forEach((todo) => {
         let li = document.createElement('li');
         let template = `
-                <span>${todo.title}</span>
-                <span>${todo.task}</span>
-                <span>Créée le : ${todo.createdAt}</span>
-                <span class="done" data-done="${todo.id}">Done</span>
-                <span class="delete-todo" data-delete="${todo.id}">X</span>
+                <span class="todo-title">${todo.title}</span>
+                <span class="todo-task">${todo.task}</span>
+                <span class="todo-date">Créée le : ${todo.createdAt}</span>
+                <div class="todo-btn">
+                <span class="done" data-done="${todo.id}"><ion-icon name="checkmark-done-sharp"></ion-icon></span>
+                <span class="delete-todo" data-delete="${todo.id}"><ion-icon name="close-sharp"></ion-icon></span>
+                </div>
         `;
 
         if(todo.status === 1) {
