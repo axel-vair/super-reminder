@@ -59,7 +59,7 @@ body {
 }
 
 .home-logo {
-    animation: scaleAnimation 7s ease-in-out infinite alternate;
+    animation: scaleAnimation 5s ease-in-out infinite alternate;
 }
 
 /* || Glassmorphism Box */
@@ -116,9 +116,11 @@ body {
 }
 
 #logo-title {
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
     font-size: 42px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 
 #logo {
@@ -200,16 +202,16 @@ body {
         background-image: url("./blob-scene-9-16.png");
     }
 
-    .git-btn {
+    .git-btn, .register-btn, .login-btn{
         width: calc(var(--git-btn-size) - 2vh);
         height: calc(var(--git-btn-size) - 2vh);
     }
-    #git-icon {
-        font-size: calc(var(--btn-size) - 3vh);
+    #git-icon, #btn-register, #btn-login{
+        font-size: calc(var(--btn-size) - 4vh);
     }
 
     #logo-title {
-        font-size: calc(100vh * 0.03);
+        font-size: calc(100vh * 0.04);
     }
     
     #logo {
@@ -218,8 +220,16 @@ body {
 
     .home-logo {
         width: 55%;
-        height: 210px;
+        height: 110px;
         border-radius: 22px;
     }
+
+    .git-btn:hover, .register-btn:hover, .login-btn:hover {
+        width: calc(var(--git-btn-size) - 1vh);
+        height: calc(var(--git-btn-size) - 1vh);
+    }
     
+    .form-btn {
+        height: 150px;
+    }
 }

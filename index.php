@@ -9,14 +9,28 @@
     <title>Todolist</title>
 </head>
 <body>
-<?php
-require_once "partials/header.php";
-?>
+<header class="header">
+    <div class="git-btn">
+        <a id="git-icon" href="https://github.com/axel-vair/super-reminder" target="_blank">
+            <span><ion-icon name="logo-github"></ion-icon></span>
+        </a>
+    </div>
+    <div class="register-btn">
+        <a role="button" id='btn-register' href="register.php">
+            <span><ion-icon name="person-add-outline"></ion-icon></span>
+        </a>
+    </div>
+    <div class="login-btn">
+        <a role="button" id='btn-login' href="login.php">
+            <span><ion-icon name="log-in-outline"></ion-icon></span>
+        </a>
+    </div>
+</header>
 <section class="container">
     <main class="section-logo">
         <div class="home-logo">
-            <span id="logo"><ion-icon name="list-outline"></ion-icon></span>
-            <span id="logo-title"><h1>todo</h1></span>
+            <span id="logo"></span>
+            <span id="logo-title"><h1>to-do list</h1></span>
         </div>
     </main>
     <div class="form-btn">
@@ -27,5 +41,4 @@ require_once "partials/header.php";
 </body>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-</body>
 </html>

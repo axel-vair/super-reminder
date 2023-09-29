@@ -16,11 +16,12 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/register.css">
+    <link rel="stylesheet" href="./assets/index.css">
     <script src="src/register.js" defer></script>
     <title>Todolist</title>
 </head>
 <body>
-
+<?php require './partials/header.php'; ?>
 <div class="main-form">
 <div class="signup">
 <form id="form-register" method="post">
@@ -64,10 +65,11 @@ if(isset($_POST) && !empty($_POST['email']) && !empty($_POST['password']) && !em
            required>
        <div class="button-pos">
               <button type="submit"  id="envoie" name="envoie">S'inscrire</button>
-              <button>Se connecter</button>
        </div>
 </form>
 </div>
 </div>
 </body>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
