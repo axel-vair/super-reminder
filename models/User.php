@@ -1,95 +1,55 @@
 <?php
-
-namespace Reminder\Models;
-require 'vendor/autoload.php';
-
-use AllowDynamicProperties;
-use PDO;
-use Reminder\Models\Helpers\Database;
-use Reminder\Models\Model;
-
-/**
- * Class User that is the representation of the user table in the database
- * This class extends Model class that is in charge of the connection to the database
- *
- */
-#[AllowDynamicProperties] class User extends Model
-{
+class User {
     private ?int $id;
     private ?string $email;
-    private ?string $firstName;
-    private ?string $lastName;
+    private ?string $firstname;
+    private ?string $lastname;
+    private ?string $password;
 
-
-    public function construct(){
-        parent::__construct();
-
+    public function __construct($id=false, $firstname=false, 
+    $lastname=false, $email=false, $password=false) {
+        $this->id = $id;
+        $this->email = $email;
+        $this->firstname = $firstname;
+        $this->lastname = $lastname;
+        $this->password = $password;
     }
 
-    /**
-     * That function is used to register all the users in the database
-     * @return int|null
-     */
- public function register($email,$password, $firstname, $lastname){
-     if(!$this->verifUser($email)){
-     $sql = "INSERT INTO user (email, password, firstname, lastname) VALUES (:email, :password, :firstname, :lastname)";
-     $sql_insert = $this->getPDO()->prepare($sql);
-     $sql_insert->execute([
-         'email' => htmlspecialchars($email),
-         'password' => password_hash($password, PASSWORD_DEFAULT),
-         'firstname' => htmlspecialchars($firstname),
-         'lastname' => htmlspecialchars($lastname)
-     ]);
-
-     if ($sql_insert) {
-         echo  json_encode(["success" => 'ok']);
-
-     } else {
-         echo json_encode(["success" => 'error insert']);
-     }
- } else {
-         echo json_encode(["error" => 'user exist']);
-     }
- }
-
-    public function verifUser($email)
-    {
-        $sql = "SELECT * FROM user WHERE email = :email";
-        $sql_exe = $this->getPDO()->prepare($sql);
-        $sql_exe->execute([
-            'email' => $email,
-        ]);
-        $results = $sql_exe->fetch(PDO::FETCH_ASSOC);
-        if ($results) {
-            $hashed_password = $results['password'];
-            if (password_verify($_POST['password-login'], $hashed_password)) {
-                session_start();
-                $_SESSION = $results;
-                return $this->responseCorrect();
-            } else {
-                return $this->responseFalse();
-            }
-
-        } else {
-            return false;
-        }
-
+    
+    public function getId(): ?int {
+        return $this->id;
+    }
+    public function setId(int $id) {
+        $this->id = $id;
+    }
+    public function getEmail(): ?string {
+        return $this->email;
+    }
+    public function setEmail(string $email) {
+        $this->email = $email;
     }
 
-    public function responseCorrect()
-    {
-        echo json_encode(["success" => 'ok']);
+    public function getFirstname(): ?string {
+        return $this->firstname;
+    }
+    public function setFirstname(string $firstname) {
+        $this->firstname = $firstname;
+    }
+    public function getLastname(): ?string {
+        return $this->lastname;
+    }
+    public function setLastname(string $lastname) {
+        $this->lastname = $lastname;
+    }
+    public function getPassword(): ?string {
+        return $this->password;
+    }
+    public function setPassword(string $password) {
+        $this->password = $password;
     }
 
-    public function responseFalse()
-    {
-        echo json_encode(["error" => 'error']);
+    public function hashPassword() {
+    
+        return password_hash($this->password, PASSWORD_DEFAULT);
     }
-
-    public function logout()
-    {
-        session_destroy();
-        header('Location: index.php');
-    }
-
 }

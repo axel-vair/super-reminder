@@ -1,6 +1,5 @@
 
 <?php
-session_start();
 
 echo '<header class="header">
     <div class="login-btn">

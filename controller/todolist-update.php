@@ -1,7 +1,7 @@
 <?php
 // Page to update a todo
+
 session_start();
-require "../vendor/autoload.php";
-use Reminder\Models\Todo;
+require_once "../models/Todo.php";
 $update = new Todo();
-@$update->updateTodo($_GET['update'], date('Y-m-d H:i:s'));
+$update->updateTodo($_GET['update'], date('Y-m-d H:i:s'));

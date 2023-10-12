@@ -2,35 +2,27 @@
 let todoForm = document.getElementById('todo-form');
 let doneBtn = document.getElementsByClassName('done');
 let deleteBtn = document.getElementsByClassName('delete-todo');
+let postForm = document.getElementById('submit');
 
-// Add event listener to the form
-// Prevent default
-// Create a new form data object and add the form to it as a parameter
-// Create a new request object and add the url and method to it
-// Fetch the request and wait for the response
-// Parse the response as json
-// Add the response to the DOM
-// Call the getTodo function
-// Parse the response as json
-if(todoForm){
-    todoForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        let form = new FormData(e.target);
-        let url = 'controller/todolist-add.php';
-        let request = new Request(url, {method: 'POST', body: form});
-        let response = await fetch(request);
-        getTodo();
-        let responseData = await response.json();
-    })
+if (todoForm) {
+postForm.addEventListener('click', async (e) => {
+
+    e.preventDefault();
+    let form = new FormData(e.target);
+    let url = '/controller/todolist-add.php';
+    let request = new Request(url, {method: 'POST', body: form});
+    let response = await fetch(request);
+    getTodo();
+    let responseData = await response.json();
+})
 }
-
 /**
  * Get all todos from the database and add them to the DOM as a list
  * Call the updateTodo and deleteTodo functions to add event listeners to the buttons
  * @returns {Promise<void>}
  */
 async function getTodo() {
-    let url = 'controller/todolist-data.php';
+    let url = '/controller/todolist-data.php';
     let request = new Request(url);
     let response = await fetch(request);
     let responseData = await response.json();
@@ -45,8 +37,8 @@ async function getTodo() {
                 <span class="todo-task">${todo.task}</span>
                 <span class="todo-date">Créée le : ${todo.createdAt}</span>
                 <div class="todo-btn">
-                <span class="done" data-done="${todo.id}"><ion-icon name="checkmark-done-sharp"></ion-icon></span>
-                <span class="delete-todo" data-delete="${todo.id}"><ion-icon name="close-sharp"></ion-icon></span>
+                <button class="done" data-done="${todo.id}"><ion-icon name="checkmark-done-sharp"></ion-icon></butt>
+                <button class="delete-todo" data-delete="${todo.id}"><ion-icon name="close-sharp"></ion-icon></button>
                 </div>
         `;
 
@@ -54,7 +46,7 @@ async function getTodo() {
             template += `<span>Terminée le : ${todo.updatedAt}</span>`;
             li.innerHTML = template;
             doneDiv.appendChild(li);
-
+            console.log("JE RENTRE DANS LE LISTENER")
 
         }else{
             li.innerHTML = template;
@@ -76,7 +68,7 @@ async function deleteTodo() {
     for(let i = 0; i < deleteBtn.length; i++) {
         deleteBtn[i].addEventListener('click', async (e) => {
             let todoId = e.target.getAttribute('data-delete');
-            let url = 'controller/todolist-delete.php?delete=' + todoId;
+            let url = '../controller/todolist-delete.php?delete=' + todoId;
             let request = new Request(url, {method: 'DELETE'});
             let responseData = await fetch(request);
             getTodo();
@@ -94,7 +86,7 @@ function updateTodo() {
         doneBtn[i].addEventListener('click',  async (e) => {
             {
                 let todoId = e.target.getAttribute('data-done');
-                let url = 'controller/todolist-update.php?update=' + todoId;
+                let url = '/controller/todolist-update.php?update=' + todoId;
                 let request = new Request(url, {method: 'PUT'});
                 let response = await fetch(request);
                 let responseData = await response.text();

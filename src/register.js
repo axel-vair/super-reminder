@@ -1,4 +1,4 @@
-let formRegister = document.getElementById('form-register');
+/*let formRegister = document.getElementById('form-register');
 let inputEmail = document.getElementById('email');
 let inputLastname = document.getElementById('lastname');
 let inputFirstname = document.getElementById('firstname');
@@ -110,3 +110,4 @@ inputPassword.addEventListener('blur', (ev) => {
         passwordError = document.getElementById('password-error');
         passwordError.textContent = "Veuillez entrer un mot de passe !"    }
 })
+*/

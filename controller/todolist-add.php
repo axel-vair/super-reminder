@@ -1,8 +1,7 @@
 <?php
 // Page to add a new todo
 session_start();
-require "../vendor/autoload.php";
-use Reminder\Models\Todo;
+require_once "../models/Todo.php";
 $new_todo = new Todo();
 $title = $_POST['input_title_todo'];
 $task = $_POST['input_todo'];

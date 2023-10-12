@@ -6,7 +6,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/index.css">
-    <title>Todolist</title>
+    <link rel="icon" href="./assets/list-outline.svg" type="image/png">
+    <title>To-do List</title>
 </head>
 <body>
 <header class="header">

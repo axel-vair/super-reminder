@@ -1,9 +1,11 @@
 <?php
-require 'vendor/autoload.php';
+// echo __dir__;
+session_start();
+
 if(!$_SESSION){
     header('Location: login.php');
+    session_destroy();
 }
-
 ?>
 <!doctype html>
 <html lang="fr">
@@ -13,6 +15,7 @@ if(!$_SESSION){
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./assets/board.css">
+    <script src="./src/todolist.js"></script>
     <title>Todolist</title>
 </head>
 <body>
@@ -25,10 +28,10 @@ if(!$_SESSION){
                 <span id="user-name">
                     <ul>
                         <li>
-                            <?= $_SESSION['firstName'] ?>
+                            <?= $_SESSION['firstname'] ?>
                         </li>
                         <li>
-                            <?= $_SESSION['lastName'] ?>
+                            <?= $_SESSION['lastname'] ?>
                         </li>
                     </ul>
                 </span>
@@ -79,13 +82,13 @@ if(!$_SESSION){
                     <input id="input_title_todo" name="input_title_todo" placeholder="Ajouter un titre" type="text"
                         required>
                     <input id="input_todo" name="input_todo" placeholder="Tâches à réaliser" type="text" required>
-                    <button id="submit" type="submit"><ion-icon name="add-sharp"></ion-icon></button>
+                    <button id="submit" type="button"><ion-icon name="add-sharp"></ion-icon></button>
                 </form>
             </section>
         </div>
     </main>
 </body>
-<script src="./super-reminder/src/script.js"></script>
+<script src="./src/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 

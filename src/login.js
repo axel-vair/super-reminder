@@ -1,4 +1,4 @@
-let formLogin = document.getElementById('form-connection');
+/*let formLogin = document.getElementById('form-connection');
 let inputEmailLogin = document.getElementById('email-login');
 let inputPasswordLogin = document.getElementById('password-login');
 
@@ -12,7 +12,8 @@ async function handleFormSubmit(event) {
     let url = "login.php";
     let request = new Request(url, {method: 'POST', body: form});
     let response = await fetch(request);
-    let responseData = await response.json();
+    let responseData = await response.text();
+    console.log(responseData)
     if (responseData.success === "ok") {
         let error = document.getElementById('error-container-login');
         error.textContent = "Connexion réussie"
@@ -62,4 +63,4 @@ inputPasswordLogin.addEventListener('blur', (ev) => {
     if(element.validity.valueMissing){
         passwordError = document.getElementById('password-error-login');
         passwordError.textContent = "Veuillez entrer un mot de passe !"    }
-})
+})*/

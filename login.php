@@ -1,15 +1,36 @@
 <?php
-namespace Reminder\Models;
+require_once './models/Connect.php';
+require_once './models/User.php';
 
-require 'vendor/autoload.php';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $user = new User(null, null, null, $_POST['email-login'], $_POST['password-login']);
 
-if (isset($_POST) && !empty($_POST['email-login']) && !empty($_POST['password-login'])) {
-    $new_user = new User();
-    $new_user->verifUser($_POST['email-login']);
-    die();
+    $conn = new Connect;
+
+    if ($conn->emailExist($user->getEmail()) > 0) {
+        $row = $conn->getPassword($user->getEmail());
+        $hashedPassword = $row['password'];
+
+
+        if (password_verify($user->getPassword(), $hashedPassword)) {
+            session_start();
+            var_dump("JE SUIS LA");
+            $_SESSION['id'] = $row['id'];
+            $_SESSION['lastname'] = $row['lastname'];
+            $_SESSION['firstname'] = $row['firstname'];
+            //ob_start();
+            header("Location: todolist.php");
+            //ob_end_flush();
+            exit();
+        } else {
+            $errorMessage = "Désolé, le mot de passe que vous avez saisi est incorrect. Veuillez vérifier votre saisie et réessayer.";
+        }
+    } else {
+        $errorMessage = "L'adresse e-mail que vous avez saisie est introuvable. Veuillez vérifier votre saisie et réessayer.";
+    }$conn->closeStmt();
+    $conn->closeDb();
 }
 ?>
-
 
 <!doctype html>
 <html lang="fr">
