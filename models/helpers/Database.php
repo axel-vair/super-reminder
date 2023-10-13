@@ -26,7 +26,7 @@ class Database {
      */
     protected function getPDO(){
 
-        $this->pdo = new PDO('mysql:host=is100092-002.eu.clouddb.ovh.net:35613;dbname=superreminder', 'souleimane', 'Oleg4342758');
+        $this->pdo = new PDO('mysql:host=localhost;dbname=superreminder', 'root', 'root');
         $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $this->pdo;
     }

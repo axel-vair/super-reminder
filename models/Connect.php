@@ -1,8 +1,8 @@
 <?php
 class Connect {
-    private $host = "is100092-002.eu.clouddb.ovh.net:35613";
-    private $username = "souleimane";
-    private $password = "Oleg4342758";
+    private $host = "localhost";
+    private $username = "root";
+    private $password = "root";
     private $dbname = "superreminder";
     protected $db;
     private $stmt;
